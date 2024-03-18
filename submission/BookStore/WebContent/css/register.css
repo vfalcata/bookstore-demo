@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #e8e9ec;
+	margin: 0 !important;
+	padding: 0 !important;
+	
+}
+
+h1 {
+	text-align : center;
+}
+
+.error {
+	color: red;
+	visibility: hidden;
+	text-align: center;
+	margin : auto;
+	display: block;
+}
+
+#div-register {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#div-register label {
+	min-width: 135px;
+	margin-right: 5px;
+	display: inline-block;
+	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#div-register button {
+	display: flex;
+	margin: auto;
+	margin-top: 20px;
+}

@@ -1,0 +1,66 @@
+---
+applications:
+- name: bookstore-runtime-terror
+  memory: 1024M
+  host: bookstore-runtime-terror
+  domain: us-east.mybluemix.net
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+properties:
+  router:
+    enable_ssl: true
+    force_forwarded_proto_https: false
+    sanitize_forwarded_proto: true
+    tls_pem:
+    - cert_chain: |
+        -----BEGIN CERTIFICATE-----
+        MIID1zCCAr+gAwIBAgIUBnrIdzxhlbyqRIzrF2KnaDtu1DAwDQYJKoZIhvcNAQEL
+        BQAwezELMAkGA1UEBhMCQ0ExEDAOBgNVBAgMB09udGFyaW8xEDAOBgNVBAcMB1Rv
+        cm9udG8xFzAVBgNVBAoMDlJ1bnRpbWUgVGVycm9yMS8wLQYDVQQDDCZib29rc3Rv
+        cmUtcnVudGltZS10ZXJyb3IubXlibHVlbWl4Lm5ldDAeFw0yMTA0MDkwMDI1Mjha
+        Fw0yMjA0MDkwMDI1MjhaMHsxCzAJBgNVBAYTAkNBMRAwDgYDVQQIDAdPbnRhcmlv
+        MRAwDgYDVQQHDAdUb3JvbnRvMRcwFQYDVQQKDA5SdW50aW1lIFRlcnJvcjEvMC0G
+        A1UEAwwmYm9va3N0b3JlLXJ1bnRpbWUtdGVycm9yLm15Ymx1ZW1peC5uZXQwggEi
+        MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChUVDgXOsyz6njLhGGZBTfF32F
+        I952dE4PoMxNeEKET2h3dH7CbhmIyTcRP2GFuZ0Y2JdhcoGwdccPs7lUtgOPpn+V
+        BLYJ5PxcSpbpsVp6G6WyPjeRTBSzq4XP3YXrcGpBsyuzdvwk5Znx+FTddE120+8L
+        bXKQLDRwcGFXT7N+/kt3n3NFoJvVnb9Xnl5NLIyBFpnIt1tLfZTdozEqV3ubiqBB
+        Q8j8YRM5kYzs1rVdZ9C8Gih9Kw6idCI9jpp8dzyfSA8Mfv3GanKglOTfslJ+41PS
+        ud1HckGzRUKLYV2gvKVWZm49wAzCjJa3THTuwX3g+ghUNdhPmUJHt5ndPapJAgMB
+        AAGjUzBRMB0GA1UdDgQWBBQmg7f401buIhEg5r0RBdHRza+BvTAfBgNVHSMEGDAW
+        gBQmg7f401buIhEg5r0RBdHRza+BvTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+        DQEBCwUAA4IBAQBRfkLDjU2fuky1XasmfSrM5bcxcINE7EDaL7jPPDsczK6d1AhR
+        kT3BwN2Tu/sICx/qYOtasnbmT8t1gvbnNQ6WUx8el3xdrl/magzIyqb1cHLuPmsf
+        qCci59H4b3UTDU742sVXbhCaqsficLWbupzvjn09nzxy+Oa3rViqK1g5rzkGXY5u
+        fYpVRvcDmf1IuXGeIhICrtan1WzYqHNbUXt/GO/pf1IPIICu8KFJi4oAZnqG4pvw
+        qp31mS91yEDQ/0Wt5tB8xRbk7JLzH1sBvsK4LgclYa8NeQGj9Kes3u8fLX1w/vEI
+        DplUl3BvZH3ritoPXoaqi7WE+HtcLxXl5M5Z
+        -----END CERTIFICATE-----
+      private_key: |-
+        -----BEGIN EXAMPLE RSA PRIVATE KEY-----
+        MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChUVDgXOsyz6nj
+        LhGGZBTfF32FI952dE4PoMxNeEKET2h3dH7CbhmIyTcRP2GFuZ0Y2JdhcoGwdccP
+        s7lUtgOPpn+VBLYJ5PxcSpbpsVp6G6WyPjeRTBSzq4XP3YXrcGpBsyuzdvwk5Znx
+        +FTddE120+8LbXKQLDRwcGFXT7N+/kt3n3NFoJvVnb9Xnl5NLIyBFpnIt1tLfZTd
+        ozEqV3ubiqBBQ8j8YRM5kYzs1rVdZ9C8Gih9Kw6idCI9jpp8dzyfSA8Mfv3GanKg
+        lOTfslJ+41PSud1HckGzRUKLYV2gvKVWZm49wAzCjJa3THTuwX3g+ghUNdhPmUJH
+        t5ndPapJAgMBAAECggEAKwJkHr2HU6+8Kr7Am2UZj3VS2Ol8SXauzUngzpLOoToO
+        rzKXDT2Pf0GudeHBHYckVFiC289MtoBgR1ZyhhxVDLqmb1OnOTIc+npEjB/l8IJo
+        hgJCjHGNX23OqmH0b5Y0LjoX36xMg4XXqoS8E6MLeC//HrvafIfcn1HHEiFEyQmV
+        H+dQzxELH/5TUtDFu0MX2QhfYd1KXTrm1VVRtgLYNVP2S8wbKrev97YFwF5Qc2vg
+        yBgr9AdmXk1p5/b2tZeqsebULpuXKG0jVMsPAZ+yMaJbz/qtSgHfBuvAgwucD3V3
+        B5Iq5iEAOt0iEvnXOxK/Rz0fqrZWNOgqDcwZaEw+AQKBgQDTmpc5LRpMYA/wSROQ
+        qco7FbplcnEJcUf/k2zmG40loZ2D98aYk9PTG0uW4H2pyVNKN2UDBGnryUcTlAOF
+        2M4/VAmglqTn8EBgZvgFOqSgvuXKA3XnWdpQqJBXB3NY5Wrkj5Lw4paKrslEM28Z
+        mZR/kDba+pwbmbVUSxNtaPh7wQKBgQDDKc//+899fh5HiAdBytAcwt5Qwb7whFl6
+        RQm5QlM39BexPATJSAc9oukYXsY+Oz7Kh5C1TKJzY+WDNPN9W5XhTUXQf+frYJHV
+        mXg/pNaMy3vELMqZ3V9QdA1KHvd7SbxZC7pMI3H3suYTaS+mPtVBzItXyD8ErGuV
+        4BG7bd9wiQKBgQCirNMbOqhgFO3L7XIkIdP97mtY+E0cVEFkoyLyGDY/uuqMfNzp
+        iaQsRGytNjKFZ+gnQ0Tdt/PyN8/zpjO7H30XxHSOR6HJSbNEKYT9CCNuDLQ9xMFM
+        tZAXuC8XKPwtWFoAEryFgbz4Kv1B+ESuKpq2Itl5KXb/5QA5KGpsD2oQQQKBgCCt
+        NotYwRP08uLtLrHgYFoAcrK4zdx9fHHRb2Bab46VywW809xTuAqk5TxUWgL/bnMA
+        ocUJUMXbOwlt6zrZA85WXtMbJ1ysrZ5C9PRLCDVIuK9PBJkgjJ3u4G7BopQ881FB
+        em7XHHTpukYTvYurR4+dzNLkz1BcAiN1AeMM8XVpAoGAYswE61Vh6QswNGxh85tu
+        mFoNkWxx+czeZxwdd7qvZoxlATWYRcOCkPj2O9AopUakYDTAtog3IoXSpW4qoioP
+        UNGGBVyst2+XYSA9U6+HjqbBhoi0rVnu9uCe12WpSnPDKZO/nIFH4mBXz3mzS8W5
+        ndnsbYYqxbooQBgErz3h0zQ=
+        -----END EXAMPLE RSA PRIVATE KEY-----

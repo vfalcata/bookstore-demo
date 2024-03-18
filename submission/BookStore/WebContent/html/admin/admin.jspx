@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" >
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Online Book Store - Analytics</title>
+	
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/admin.css" type="text/css" title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/navBar.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/footer.css" type="text/css"
+		title="cse4413" media="screen, print" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/adminHandler.js">;</script>
+    
+    <style type="text/css">	
+ 	${requestScope['CSS_MAIN']}
+ 	</style>
+ 	
+	<script>
+		function openNav() {
+		  document.getElementById("mySidenav").style.width = "250px";
+		  document.getElementById("main").style.marginLeft = "250px";
+		  document.getElementById("sandwich").style.display = "none";
+		}
+		
+		function closeNav() {
+		  document.getElementById("mySidenav").style.width = "0";
+		  document.getElementById("main").style.marginLeft= "0";
+		  document.getElementById("sandwich").style.display = "inline-block";
+		}
+	</script>
+
+</head>
+<body>
+<!-- ===============================================
+
+  This file handles the main page view and content
+  of the online bookstore website for users and 
+  visitors.
+
+=============================================== -->
+	<!-- Javascript code -->
+	<script  type="text/javascript">
+	<![CDATA[
+	${requestScope['JS_CODE_ADMIN']}
+	]]>
+	</script>
+	
+	<!-- Navigation bar -->
+	<!-- Suggestion Section -->
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" style="padding-top:5px;font-size:1.5rem;" onclick="closeNav()">&#215;</a>
+		<a href="?type=report">Report</a>
+		<a href="?type=analytics">RT Analytics</a>
+  		<a href="?type=stats">Buying Statistics</a>
+	</div>
+	
+	<div id="main">
+		<!-- headline -->
+		<header><span id="sandwich" style="font-size:1.5rem;cursor:pointer" onclick="openNav()">&#9776;</span> <a href="/Admin">Analytics</a></header>
+		
+		<!-- Suggestion Section -->	
+		<div id="content">
+			${requestScope['HTML_SUGGST_ADMIN']}
+		</div>
+	</div>
+	
+</body>
+</html>
+</jsp:root>

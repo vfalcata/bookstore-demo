@@ -1,0 +1,91 @@
+/*******************************************************************
+ 
+	This file handles the view of the main page of the bookstore 
+	website.
+
+ *******************************************************************/
+ 
+
+body {
+  background-color: #e8e9ec;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+header
+{
+	padding:100px; 
+	text-align:center; 
+	font-weight:bold; 
+	font-size:4.0rem;
+	background-color:green;
+}
+
+
+/* ========= Containers ======== */
+
+.container {
+	background-color: white;
+	padding:10px;
+	margin:25px;
+	margin-top: 45px;
+}
+
+.container .title {
+	padding: 20px;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5rem;
+	color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 14.28%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+	padding: 15px; 
+	height: 260px;
+	background-color:grey;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  width: auto;
+  color: black;
+  user-select: none;
+  top: 50%;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	float:right;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #dedf7d;
+}
+
+.book:hover {
+	opacity: 0.7;
+	cursor:pointer;
+}

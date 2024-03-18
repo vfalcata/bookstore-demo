@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=ISO-8859-1" 
+		pageEncoding="ISO-8859-1" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Cart</title>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js">;</script>
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/cart.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/navBar.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/footer.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/LogOut.js">;</script>
+</head>
+<body>
+	<!-- Navigation bar -->
+	<div class="nav_bar">
+		<a href="${pageContext.request.contextPath}/MainPage"><img class="nav_bar_img" src="${pageContext.request.contextPath}/res/bookLogo.jpg" alt="LOGO" /></a>
+		<a class="padding hovering" href="${pageContext.request.contextPath}/MainPage">Home</a>
+		<c:choose>
+			<!-- customer -->
+		  	<c:when test="${not empty sessionScope['customer']}">
+				<a class="padding hovering" href="${pageContext.request.contextPath}/Orders">Orders</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/UserPage">My Account</a>
+				<form action="" method="post">
+					<label type="hidden" id="cameFromPage" name="cameFromPage" value="MainPage" ></label>
+					<a class="padding hovering"  onclick="LogOut();">Sign Out</a>
+				</form>
+		  	</c:when>
+
+		  	<!-- visitor -->
+		  	<c:otherwise> 
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/SignIn.jspx">Sign In</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/Register.jspx">Register</a>
+	  		</c:otherwise>
+		  	
+	  	</c:choose>
+		
+		<!-- shopping cart -->
+	  	<a href="${pageContext.request.contextPath}/ShoppingCart" style="float:right;" >
+	  		<img class="nav_bar_img active" style="float:right;" src="${pageContext.request.contextPath}/res/shoppingCart.png" alt="checkout" />
+  		</a>
+	  	
+	  	<!-- search bar -->
+		<div class="search_bar">
+	  		<form action="${pageContext.request.contextPath}/Search" method="Post">
+	    		<input id="searchBar" type="text" placeholder="Search.." name="searchBar" />
+	    		<button class="nav_bar_img" action='submit' name='search' id="search" value="true" style="float:right;background-image:url('${pageContext.request.contextPath}/res/magnifyingGlass.jpg');">	    		
+	    		</button> 
+
+	    	</form>
+	  	</div>
+	</div>
+	
+	<h1>Shopping Cart</h1>
+	
+	<div id="cart-container">
+		<c:if test="${fn:length(requestScope.books) lt 1 }">
+			<hr/>
+			<label id="label-empty">Shopping Cart is empty</label>
+		</c:if>
+		<c:forEach var="book" items="${requestScope.books}">
+			<hr/>
+			<div class="book" id="div-${book.key.ISBN}">
+				<img src="/res/book_images/covers/${book.key.cover}"></img>
+				<div class="info-panel">
+					<table class="info-table">
+		            <caption>${book.key.title}</caption>
+		            <tr>
+		                <th>Price</th>
+		                <td>${book.key.price}</td>
+		            </tr>
+		            <tr>
+		                <th>Author</th>
+		                <td>${book.key.author}</td>
+		            </tr>
+		            <tr>
+		                <th>Description</th>
+		                <td>${book.key.description}</td>
+		            </tr>
+		            <tr>
+		                <th>Publish Year</th>
+		                <td>${book.key.publishYear}</td>
+		            </tr>
+		            <tr>
+		                <th>Category</th>
+		                <td>${book.key.category}</td>
+		            </tr>
+		            <tr>
+		                <th>Rating</th>
+		                <td>${book.key.rating}</td>
+		            </tr>
+		            <tr>
+		                <th>ISBN</th>
+		                <td>${book.key.ISBN}</td>
+		            </tr>
+		            <tr>
+		                <th>Amount Sold</th>
+		                <td>${book.key.amountSold}</td>
+		            </tr>
+		        </table>
+		        <label>Quantity</label>
+		        <input class="quantity" type="number" min="1" value="${book.value}"
+		        	name="${book.key.ISBN}" id="input-${book.key.ISBN}" oninput="updateQuantity(this.name, this.value);"/>
+		        	
+		        <button name="${book.key.ISBN}" id="button-${book.key.ISBN}" type="button" onclick="removeBook(this.name);">Remove from Cart</button>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+	<c:if test="${fn:length(requestScope.books) gt 0 }">
+		<div id="div-total">
+			<label>TOTAL PRICE: <span id="span-price">${requestScope.totalPrice}</span></label>
+			
+			<button type="button" onclick="location.href = '${pageContext.request.contextPath}/PurchaseOrder';">Payment</button>
+		
+		</div>
+	</c:if>
+	
+	<!-- footer -->
+	<footer  style="margin-top:40px;">
+		<div class="footer_container">
+			<div class="footer_row" style="text-align:center">
+				<p>©2021, Runtime Terror, Inc. or its affiliates</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
+</jsp:root>

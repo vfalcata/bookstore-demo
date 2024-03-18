@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" >
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Review</title>
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/navBar.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/footer.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/Review.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/LogOut.js">;</script>
+</head>
+<body>
+	<!-- Navigation bar -->
+	<div class="nav_bar">
+		<a href="${pageContext.request.contextPath}/MainPage"><img class="nav_bar_img" src="${pageContext.request.contextPath}/res/bookLogo.jpg" alt="LOGO" /></a>
+		<a class="padding hovering" href="${pageContext.request.contextPath}/MainPage">Home</a>
+		<c:choose>
+			<!-- customer -->
+		  	<c:when test="${sessionScope['customer'] != null}">
+				<a class="padding hovering" href="${pageContext.request.contextPath}/Orders">Orders</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/UserPage">My Account</a>
+				<form action="" method="post">
+					<label type="hidden" id="cameFromPage" name="cameFromPage" value="MainPage" ></label>
+					<a class="padding hovering"  onclick="LogOut();">Sign Out</a>
+				</form>
+		  	</c:when>
+
+		  	<!-- visitor -->
+		  	<c:otherwise> 
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/SignIn.jspx">Sign In</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/Register.jspx">Register</a>
+	  		</c:otherwise>
+		  	
+	  	</c:choose>
+		
+		<!-- shopping cart -->
+	  	<a href="${pageContext.request.contextPath}/ShoppingCart" style="float:right;" >
+	  		<img class="nav_bar_img" style="float:right;" src="${pageContext.request.contextPath}/res/shoppingCart.png" alt="checkout" />
+  		</a>
+	  	
+	  	<!-- search bar -->
+		<div class="search_bar">
+	  		<form action="${pageContext.request.contextPath}/Search" method="Post">
+	    		<input id="searchBar" type="text" placeholder="Search.." name="searchBar" />
+	    		<button class="nav_bar_img" action='submit' name='search' id="search" value="true" style="float:right;background-image:url('${pageContext.request.contextPath}/res/magnifyingGlass.jpg');">	    		
+	    		</button> 
+
+	    	</form>
+	  	</div>
+	</div>
+	
+	
+	<!-- Review Section -->
+	<div class="section">
+		
+		<header>Review for ${requestScope['TITLE']}, by ${requestScope['AUTHOR']}</header>
+		
+		<form action="${pageContext.request.contextPath}/${requestScope['redirectTo']}" method="Post">
+
+			<div class="rate">
+			
+				<c:choose>
+					<c:when test="${not empty requestScope['FIVE_STAR']}">
+				  		<input type="radio" id="star5" name="rate" value="5" checked="checked"/>
+				  	</c:when>
+				  	<c:otherwise>
+				  		<input type="radio" id="star5" name="rate" value="5" />
+				  	</c:otherwise>
+		  		</c:choose>
+		  	    <label for="star5" title="text">5 stars</label>
+				
+				<c:choose>
+					<c:when test="${not empty requestScope['FOUR_STAR']}">
+				  		<input type="radio" id="star4" name="rate" value="4" checked="checked"/>
+			  		</c:when>
+		  			<c:otherwise>
+		  				<input type="radio" id="star4" name="rate" value="4" />
+		  			</c:otherwise>
+	  			</c:choose>
+	  			<label for="star4" title="text">4 stars</label>
+	  			
+				
+				<c:choose>
+					<c:when test="${not empty requestScope['THREE_STAR']}">
+				  		<input type="radio" id="star3" name="rate" value="3" checked="checked"/>
+			  		</c:when>
+			  		<c:otherwise>
+			  			<input type="radio" id="star3" name="rate" value="3" />
+			  		</c:otherwise>
+		  		</c:choose>
+		  		<label for="star3" title="text">3 stars</label>
+				
+				
+				<c:choose>
+					<c:when test="${not empty requestScope['TWO_STAR']}">
+				  		<input type="radio" id="star2" name="rate" value="2" checked="checked"/>
+			  		</c:when>
+			  		<c:otherwise>
+			  			<input type="radio" id="star2" name="rate" value="2" />
+			  		</c:otherwise>
+		  		</c:choose>
+		  		<label for="star2" title="text">2 stars</label>
+				  
+				
+				<c:choose>
+					<c:when test="${not empty requestScope['ONE_STAR']}">
+				  		<input type="radio" id="star1" name="rate" value="1" checked="checked" />
+			  		</c:when>
+			  		<c:otherwise>
+			  			<input type="radio" id="star1" name="rate" value="1" />
+			  		</c:otherwise>
+		  		</c:choose>
+		  		<label for="star1" title="text">1 star</label>
+				  
+			</div>
+			<BR/>
+			<BR/>
+			<BR/>
+			<input id="title" name="title" type="text" placeholder="Title" style="width:100%;" value="${requestScope['title']}"></input>
+			
+			<!-- <c:if test="${requestScope['redirectTo'] eq Orders}"> -->
+				<input id="bookID" name="bookID" value="${requestScope['bookID']}" type="hidden"></input>
+			<!--</c:if>		-->
+			<textarea id="body" rows="15" cols="1" name="body" style="width: 100%;" placeholder="Enter review here:" class='formtext'><jsp:text />${requestScope['body']}</textarea>
+			
+		    <input class="button addReview" type="submit" name="review_form" id="review_form"></input>
+		</form>
+	</div>
+
+	<!-- footer -->
+	<footer>
+		<div class="footer_container">
+			<div class="footer_row" style="text-align:center">
+				<p>©2021, Runtime Terror, Inc. or its affiliates</p>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>
+</jsp:root>

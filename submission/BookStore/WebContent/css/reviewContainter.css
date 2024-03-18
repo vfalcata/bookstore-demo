@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+	float: left;
+	width: 33.33%;
+
+	background-color: grey;
+	padding:10px;
+	margin:25px;
+	margin-top: 145px;
+}
+
+.container_title {
+	padding: 20px;
+	text-align:center;
+	font-size:1.5rem;
+	color: red;
+	background-color:blue;
+}
+

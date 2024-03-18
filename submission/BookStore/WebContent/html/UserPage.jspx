@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" >
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>MyAccount</title>
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/navBar.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/footer.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/UserPage.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/LogOut.js">;</script>
+	
+</head>
+<body>
+	<!-- Navigation bar -->
+	<div class="nav_bar">
+		<a href="${pageContext.request.contextPath}/MainPage"><img class="nav_bar_img" src="${pageContext.request.contextPath}/res/bookLogo.jpg" alt="LOGO" /></a>
+		<a class="padding hovering" href="${pageContext.request.contextPath}/MainPage">Home</a>
+		<c:choose>
+			<!-- customer -->
+		  	<c:when test="${not empty sessionScope['customer']}">
+				<a class="padding hovering" href="${pageContext.request.contextPath}/Orders">Orders</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/UserPage">My Account</a>
+				<form action="" method="post">
+					<label type="hidden" id="cameFromPage" name="cameFromPage" value="MainPage" ></label>
+					<a class="padding hovering"  onclick="LogOut();">Sign Out</a>
+				</form>
+		  	</c:when>
+
+		  	<!-- visitor -->
+		  	<c:otherwise> 
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/SignIn.jspx">Sign In</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/Register.jspx">Register</a>
+	  		</c:otherwise>
+		  	
+	  	</c:choose>
+		
+		<!-- shopping cart -->
+	  	<a href="${pageContext.request.contextPath}/ShoppingCart" style="float:right;" >
+	  		<img class="nav_bar_img" style="float:right;" src="${pageContext.request.contextPath}/res/shoppingCart.png" alt="checkout" />
+  		</a>
+	  	
+	  	<!-- search bar -->
+		<div class="search_bar">
+	  		<form action="${pageContext.request.contextPath}/Search" method="Post">
+	    		<input id="searchBar" type="text" placeholder="Search.." name="searchBar" />
+	    		<button class="nav_bar_img" action='submit' name='search' id="search" value="true" style="float:right;background-image:url('${pageContext.request.contextPath}/res/magnifyingGlass.jpg');">	    		
+	    		</button> 
+
+	    	</form>
+	  	</div>
+	</div>
+	
+	
+	
+	<!-- user info section -->
+	<div class="section">
+		<header>My Account</header>
+		<c:if test="${not empty requestScope['SuccessMsg']}">
+			<header  style="font-size:1rem;border: 3px solid green;">${requestScope['SuccessMsg']}</header>
+		</c:if>
+		
+		<form class="user_form">
+			<table>
+				<tr>
+					<td colspan="2"><label for="errMsg" style="color:red;">${requestScope['errorMsg']}</label></td>
+				</tr>
+				<tr>
+					<td><label for="username"><strong>username:</strong></label></td>
+					<td><input id="username" name="username" type="text"  value="${requestScope['username']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="password"><strong>password:</strong></label></td>
+					<td><input id="password" name="password" type="text"  value="********"/></td>    	
+				</tr>
+				<tr>
+					<td><label for="name"><strong>First Name:</strong></label></td>
+					<td><input id="name" name="name" type="text"  value="${requestScope['name']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="last_name"><strong>Last Name:</strong></label></td>
+					<td><input id="last_name" name="last_name" type="text"  value="${requestScope['last_name']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="email"><strong>Email:</strong></label></td>
+					<td><input id="email" name="email" type="text"  value="${requestScope['email']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="street"><strong>Street:</strong></label></td>
+					<td><input id="street" name="street" type="text"  value="${requestScope['street']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="street_number"><strong>Street Number:</strong></label></td>
+					<td><input id="street_number" name="street_number" type="text"  value="${requestScope['street_number']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="postal_code"><strong>Postal Code:</strong></label></td>
+					<td><input id="postal_code" name="postal_code" type="text"  value="${requestScope['postal_code']}"/></td>
+				 </tr>
+				 <tr>
+					<td><label for="city"><strong>City:</strong></label></td>
+					<td><input id="city" name="city" type="text"  value="${requestScope['city']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="province"><strong>Province:</strong></label></td>
+					<td><input id="province" name="province" type="text"  value="${requestScope['province']}"/></td>
+				</tr>
+				<tr>
+					<td><label for="country"><strong>Province:</strong></label></td>
+					<td><input id="country" name="country" type="text"  value="${requestScope['country']}"/></td>
+				</tr>
+				<tr>
+					<td><button action='submit' id="update_information" class="button update" name='update_information' value="true">save</button></td>
+				</tr>
+			 </table>	
+		</form>
+	</div>
+	
+	<!-- footer -->
+	<footer>
+		<div class="footer_container">
+			<div class="footer_row" style="text-align:center">
+				<p>©2021, Runtime Terror, Inc. or its affiliates</p>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>
+</jsp:root>

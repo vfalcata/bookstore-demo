@@ -1,0 +1,44 @@
+/*******************************************************************
+ 
+	This file handles the view of the footer for all pages related 
+	to the bookstore website.
+
+ *******************************************************************/
+ 
+@charset "UTF-8";
+
+footer {
+	background-color: #255517;
+	padding: 5px;
+	color: white;
+}
+
+.footer_container {
+	background-color: transparent;
+	padding:10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.footer_column {
+  float: left;
+  width: 33.33%;
+  padding: 20px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.footer_row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer_content {
+	padding: 15px; 
+	height: 260px;
+	background-color: transparent;
+}

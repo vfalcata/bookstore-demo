@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+
+body {
+	background-color: #e8e9ec;
+	margin: 0 !important;
+	padding: 0 !important;
+	
+}
+.error {
+	visibility: hidden;
+	color: red;
+}
+
+#container {
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+#login-panel {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+#login-panel input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#login-panel label {
+	min-width: 80px;
+	display: inline-block;
+}
+
+#button-login {
+	display: flex;
+	margin: auto;
+}
+
+#a-register {
+	text-align: center;
+	margin-top: 20px;
+}

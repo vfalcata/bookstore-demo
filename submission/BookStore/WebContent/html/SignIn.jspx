@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" >
+	<jsp:directive.page contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" session="true"/>
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Login</title>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/signIn.js">;</script>
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/signIn.css" type="text/css" title="cse4413" media="screen, print"/>
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/navBar.css" type="text/css"
+		title="cse4413" media="screen, print" />
+	<link rel="StyleSheet" href="${pageContext.request.contextPath}/css/footer.css" type="text/css"
+		title="cse4413" media="screen, print" />
+</head>
+<body>
+	<!-- Navigation bar -->
+	<div class="nav_bar">
+		<a href="${pageContext.request.contextPath}/MainPage"><img class="nav_bar_img" src="${pageContext.request.contextPath}/res/bookLogo.jpg" alt="LOGO" /></a>
+		<a class="padding hovering" href="${pageContext.request.contextPath}/MainPage">Home</a>
+		<c:choose>
+			<!-- customer -->
+		  	<c:when test="${not empty sessionScope['customer']}">
+				<a class="padding hovering" href="${pageContext.request.contextPath}/Orders">Orders</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/UserPage">My Account</a>
+		  	</c:when>
+
+		  	<!-- visitor -->
+		  	<c:otherwise> 
+				<a class="padding active" href="${pageContext.request.contextPath}/html/SignIn.jspx">Sign In</a>
+				<a class="padding hovering" href="${pageContext.request.contextPath}/html/Register.jspx">Register</a>
+	  		</c:otherwise>
+		  	
+	  	</c:choose>
+		
+		<!-- shopping cart -->
+	  	<a href="${pageContext.request.contextPath}/ShoppingCart" style="float:right;" >
+	  		<img class="nav_bar_img" style="float:right;" src="${pageContext.request.contextPath}/res/shoppingCart.png" alt="checkout" />
+  		</a>
+	  	
+	  	<!-- search bar -->
+		<div class="search_bar">
+	  		<form action="${pageContext.request.contextPath}/Search" method="Post">
+	    		<input id="searchBar" type="text" placeholder="Search.." name="searchBar" />
+	    		<button class="nav_bar_img" action='submit' name='search' id="search" value="true" style="float:right;background-image:url('${pageContext.request.contextPath}/res/magnifyingGlass.jpg');">	    		
+	    		</button> 
+
+	    	</form>
+	  	</div>
+	</div>
+	
+	<div id="container">
+	<label class="error" id="label-error">.</label>
+		<div id="login-panel">
+			
+			<form action="" method="post">
+				<label for="input-uname">Username: </label>
+				<input type="text" id="input-uname" name="username" placeholder="Username"/>
+				<br/>
+				<label for="input-pword">Password: </label>
+				<input type="password" id="input-pword" name="password" placeholder="Password"/>
+				<br/>
+				<button id="button-login" type="button" onclick="signIn();">Login</button>
+			</form>
+			<a id="a-register" href="${pageContext.request.contextPath}/html/Register.jspx">Register</a>
+		</div>
+	</div>
+	
+	<!-- footer -->
+	<footer>
+		<div class="footer_container">
+			<div class="footer_row" style="text-align:center">
+				<p>©2021, Runtime Terror, Inc. or its affiliates</p>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>
+</jsp:root>

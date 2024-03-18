@@ -1,0 +1,76 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #e8e9ec;
+	margin: 0 !important;
+	padding: 0 !important;
+	
+}
+h1 {
+	text-align: center;
+}
+
+hr {
+	width: 100%;
+}
+#cart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#cart-container > div {
+	margin-top : 20px;
+}
+
+.book {
+	display : flex;
+	flex-direction : row;
+}
+
+.book img {
+	max-width : 355;
+	max-height: 530;
+	min-width : 355;
+	min-height: 530;
+}
+.book label {
+	margin-top: 20px;
+}
+.book button {
+	margin-top: 20px;
+	background-color: #ec2f55
+}
+.info-panel {
+	display: flex;
+	flex-direction: column;	
+	margin-left : 20px;
+	
+}
+
+.info-table caption{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.info-table th{
+	text-align: left;
+}
+
+#div-total {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#div-total label
+{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#div-total button {
+	margin-bottom: 40px;
+}

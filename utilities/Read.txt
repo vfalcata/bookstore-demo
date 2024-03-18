@@ -1,0 +1,3 @@
+Add any shared personal utilities here. Jars are fine.
+Utilities are only to help development but the project cannot be dependent on them.
+good examples of utilities are code generators or annotations compilers

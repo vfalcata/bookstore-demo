@@ -1,0 +1,119 @@
+/*
+Sample css animation taken from:
+https://loading.io/css/
+*/
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: grey transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.collapsible {
+  overflow: hidden;
+}
+
+.collapse {
+  margin-top: -100%;
+  transition: all 1s;
+}
+
+.expand {
+   margin-top: 0;
+}
+
+
+/*OverLay based off of https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opacity*/
+
+
+.backOverlayElement {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+#iframeContainer{
+	width:50%;
+	height:80%;
+}
+#loginIFrame, #registerIFrame{
+	width:100%;
+	height:100%;
+}
+
+
+.frontOverlayElement {
+  transition: .1s ease;
+  opacity: 0;
+  position: absolute;
+  background-color:#EEEEEE;
+  border-style: ridge;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.registerSignUpFrame {
+
+      position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: white; background: #666666; opacity: .8;
+    z-index: 1000
+}
+
+.overlay .backOverlayElement {
+  opacity: 0.3;
+}
+
+.overlay .frontOverlayElement {
+  opacity: 1;
+}
+
+#registerFromCheckout, #signInFromCheckout{
+	margin:20%;
+}
+
+#purchaseOrder{
+	margin:10% 10% 10% 10%;
+	padding:1em;
+text-align: center;
+}
+
+.purchaseOrderError{
+	font-size: 0.5em;
+	color:red;
+}

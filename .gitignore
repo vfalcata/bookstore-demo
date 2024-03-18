@@ -1,0 +1,17 @@
+### Eclipse ###
+submission/.metadata
+submission/BookStore/.project
+submission/BookStore/.classpath
+submission/BookStore/build
+submission/BookStore/target
+submission/.bin/
+submission/.tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+submission/.settings/
+submission/.loadpath
+submission/BookStore/.settings
+database/*

@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+body {
+  background-color: #e8e9ec;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+  grid-row-gap: 50px;
+}
+
+.section {
+	
+	background-color: white;
+	padding:10px;
+	margin:25px;
+}
+
+header
+{
+	padding:16px; 
+	text-align:center; 
+	font-weight:bold; 
+	font-size:2.0rem;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.button {
+	border: none;
+	color: white;
+	background-color:#97bff4;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.addReview:hover {
+	background-color:#769fef;
+}
+
+/* Rating section */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}

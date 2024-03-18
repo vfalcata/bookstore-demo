@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: black;
+ 
+}
+
+.text {
+	padding: 100px 0;
+	height:360px;
+	color: white;
+	font-size: 15px;
+    text-align: center;
+    vertical-align:center;
+
+}
+
+.book:hover .overlay {
+  opacity: 1;
+}
+
+
+
+.book {
+	padding: 15px; 
+	height: 360px;
+	width:200px;
+	background-color:grey;
+	background-position: center;background-size: cover;
+	cursor: pointer;
+}
+

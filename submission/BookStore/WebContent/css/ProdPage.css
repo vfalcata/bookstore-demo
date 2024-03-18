@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+
+body {
+  background-color: #e8e9ec;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.prod_section {
+	
+	background-color: white;
+	padding:10px;
+	margin:25px;
+}
+
+* {
+  box-sizing: border-box;
+  grid-row-gap: 50px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column_1_3 {
+  float: left;
+  width: 45%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+.column_1_4 {
+  float: left;
+  width: 24%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+.column_2_3 {
+  float: left;
+  width: 45%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.book_row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.button {
+	border: none;
+	color: white;
+	background-color:#97bff4;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.addProduct:hover {
+	background-color:#769fef;
+}
+
+.addReview:hover {
+	background-color:#769fef;
+}
+
+.readMore {
+	border: none;
+	color: #748df4;
+	background-color:white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.readMore:hover {
+	color:red;
+	text-decoration: underline;
+}
+
+.border {
+	border-color: #2196F3;
+}
+
+.title {
+	padding: 20px;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5rem;
+	margin-bottom:50px;
+	color: black;
+}
+
+.container_title {
+	padding: 10px;
+	text-align:left;
+	font-weight:bold;
+	color: black;
+}
+
+.row p {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+.book_row p {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+.prevNext {
+	border: none;
+	color: #748df4;
+	background-color:white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+.review_row p {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+
+.review_row:after {
+	content: "";
+	display: table;
+	clear: both;
+	margin-top:50px;
+}
